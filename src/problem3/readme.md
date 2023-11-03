@@ -16,7 +16,7 @@ import { BoxProps } from "your-box-library";
 
 ## The blockchain type
 
-The blockchain parameter of the `getPriority` function is defined as `any`, but it should have a more specific type.
+The `blockchain` parameter of the `getPriority` function is defined as `any`, but it should have a more specific type.
 
 ```typescript
 //Legacy code
