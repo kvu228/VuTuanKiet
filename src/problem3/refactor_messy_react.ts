@@ -1,14 +1,18 @@
 //Import neccessary modules
 import React from "react";
 import { useMemo } from "react";
-import WalletRow from "./WalletRow"; // import WalletRow component
-import { useWalletBalances, usePrices } from "your-appropriate-hooks-library"; // Replace with your actual hook imports
-import { BoxProps } from "your-box-library"; // Replace with your actual BoxProps import
+// import WalletRow component
+import WalletRow from "./WalletRow";
+// Replace with your actual hook
+import { useWalletBalances, usePrices } from "your-appropriate-hooks-library";
+// Replace with your actual BoxProps
+import { BoxProps } from "your-box-library";
 
 interface WalletBalance {
     currency: string;
     amount: number;
-    blockchain: string; // Added blockchain property to WalletBalance
+    // Added blockchain property to WalletBalance
+    blockchain: string;
 }
 
 interface Props extends BoxProps {}
@@ -45,7 +49,6 @@ const WalletPage: React.FC<Props> = (props: Props) => {
             });
     }, [balances]);
 
-    // Improved mapping and formatting of balances
     const formattedBalances = sortedBalances.map((balance: WalletBalance) => ({
         ...balance,
         formatted: balance.amount.toFixed(),
@@ -55,7 +58,8 @@ const WalletPage: React.FC<Props> = (props: Props) => {
     const rows = formattedBalances.map(
         (balance: WalletBalance, index: number) => (
             <WalletRow
-                className={classes.row} // Define 'classes' if not already defined
+                // Define 'classes' if not already defined
+                className={classes.row}
                 key={index}
                 amount={balance.amount}
                 usdValue={prices[balance.currency] * balance.amount}
